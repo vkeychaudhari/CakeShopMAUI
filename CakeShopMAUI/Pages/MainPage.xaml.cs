@@ -1,4 +1,4 @@
-﻿namespace CakeShopMAUI;
+﻿namespace CakeShopMAUI.Pages;
 
 public partial class MainPage : ContentPage
 {
