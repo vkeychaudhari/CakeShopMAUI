@@ -4,40 +4,36 @@
              x:Class="CakeShopMAUI.Pages.MainPage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="DarkGoldenrod">
-
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
+    <Grid RowDefinitions="Auto,*,Auto" Padding="15,25">
+        <Label Text="Cake World" FontSize="50"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+        <Image Grid.Row="1" Source="maincake.svg"
+               HeightRequest="250" WidthRequest="250"
+               VerticalOptions="Center" HorizontalOptions="Center"/>
+        <VerticalStackLayout Grid.Row="2" Spacing="15">
+            <Label Text="The taste of Delesiuos Cake" Grid.Row="2" FontSize="40"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" LineHeight="0.9"/>
+            <Label Text="Feel the taste of mouth watering cake from its origin country"
+                   Grid.Row="2" FontSize="18" LineHeight="1"/>
+            <Border StrokeShape="RoundRectangle 25"
+                    StrokeThickness="0" BackgroundColor="Goldenrod"
+                    HeightRequest="50">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Spacing="10" Padding="0,5">
+                    <Label Text="Get started" FontSize="18"
+                           VerticalOptions="Center"/>
+                    <Image Source="rightarrow.svg" 
+                           HeightRequest="30" WidthRequest="50"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                
+            </Border>
         </VerticalStackLayout>
-    </ScrollView>
-
+    </Grid>
 </ContentPage>
