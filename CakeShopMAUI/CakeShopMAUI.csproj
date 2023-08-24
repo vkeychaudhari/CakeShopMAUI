@@ -46,6 +46,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\cake10img.svg" />
+	  <None Remove="Resources\Images\cake1img.svg" />
+	  <None Remove="Resources\Images\cake2img.svg" />
+	  <None Remove="Resources\Images\cake3img.svg" />
+	  <None Remove="Resources\Images\cake4img.svg" />
+	  <None Remove="Resources\Images\cake5img.svg" />
+	  <None Remove="Resources\Images\cake6img.svg" />
+	  <None Remove="Resources\Images\cake7img.svg" />
+	  <None Remove="Resources\Images\cake8img.svg" />
+	  <None Remove="Resources\Images\cake9img.svg" />
 	  <None Remove="Resources\Images\cakeoffer.svg" />
 	  <None Remove="Resources\Images\maincake.svg" />
 	  <None Remove="Resources\Images\rightarrow.svg" />
