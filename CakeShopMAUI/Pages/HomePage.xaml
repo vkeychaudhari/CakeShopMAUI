@@ -2,11 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CakeShopMAUI.Pages.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Cake World">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Border StrokeShape="RoundRectangle 10"
+                    StrokeThickness="0"
+                    BackgroundColor="Goldenrod"
+                    VerticalOptions="Start"
+                    Padding="15">
+                <Grid ColumnDefinitions="*,10,*">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Best offer"
+                               FontSize="25"/>
+                        <Label Text="Grab this amazing offer before it expires"
+                               FontSize="15"/>
+                        <Button Text="Get it now" BackgroundColor="PaleGoldenrod"
+                                TextColor="Black"
+                                CornerRadius="20" FontSize="15">
+                        </Button>
+                    </VerticalStackLayout>
+                    <Image Grid.Column="2" 
+                           VerticalOptions="Start" HeightRequest="150" WidthRequest="150"
+                            Source="cakeoffer.sng"/>
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
