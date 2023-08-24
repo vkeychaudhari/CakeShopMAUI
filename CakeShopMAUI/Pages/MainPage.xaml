@@ -12,7 +12,7 @@
                HeightRequest="250" WidthRequest="250"
                VerticalOptions="Center" HorizontalOptions="Center"/>
         <VerticalStackLayout Grid.Row="2" Spacing="15">
-            <Label Text="The taste of Delesiuos Cake" Grid.Row="2" FontSize="40"
+            <Label Text="The taste of Delicious Cake" Grid.Row="2" FontSize="40"
                HorizontalOptions="Center"
                FontAttributes="Bold" LineHeight="0.9"/>
             <Label Text="Feel the taste of mouth watering cake from its origin country"
