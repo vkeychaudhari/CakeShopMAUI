@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CakeShopMAUI.ViewModels"
+             xmlns:models="clr-namespace:CakeShopMAUI.Models"
              x:Class="CakeShopMAUI.Pages.HomePage"
-             Title="Cake World">
+             Title="Cake World"
+             x:DataType="vm:HomeViewModel">
     <ScrollView>
-        <VerticalStackLayout Padding="10">
+        <VerticalStackLayout Padding="10" Spacing="10">
             <Border StrokeShape="RoundRectangle 10"
                     StrokeThickness="0"
                     BackgroundColor="Goldenrod"
@@ -23,9 +26,40 @@
                     </VerticalStackLayout>
                     <Image Grid.Column="2" 
                            VerticalOptions="Start" HeightRequest="150" WidthRequest="150"
-                            Source="cakeoffer.sng"/>
+                            Source="cakeoffer.svg"/>
                 </Grid>
             </Border>
+            <Border StrokeShape="RoundRectangle 22"
+                    Stroke="Goldenrod"
+                    StrokeThickness="2">
+                <Label Text="Search here" TextColor="Goldenrod" FontSize="15"
+                       VerticalOptions="Center" Padding="14,10"/>
+            </Border>
+            <BoxView HeightRequest="5" Color="Transparent"/>
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Popular items" FontSize="16" FontAttributes="Bold"
+                       VerticalOptions="End"/>
+                <Label Grid.Column="1" Text="View all"
+                       HorizontalOptions="End" VerticalOptions="End" FontSize="15"
+                       TextDecorations="Underline"/>
+            </Grid>
+            <FlexLayout BindableLayout.ItemsSource="{Binding Cakes}"
+                        Wrap="Wrap" >
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Cake">
+                        <Border 
+                                FlexLayout.Basis="50%"
+                                StrokeShape="RoundRectangle 10" 
+                                BackgroundColor="PaleGoldenrod"
+                                StrokeThickness="0" Margin="2"
+                                HeightRequest="150">
+                            <Image Source="{Binding Image}">
+
+                            </Image>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
