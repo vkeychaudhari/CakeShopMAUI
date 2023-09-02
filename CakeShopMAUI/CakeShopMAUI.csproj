@@ -59,6 +59,7 @@
 	  <None Remove="Resources\Images\cakeoffer.svg" />
 	  <None Remove="Resources\Images\maincake.svg" />
 	  <None Remove="Resources\Images\rightarrow.svg" />
+	  <None Remove="Resources\Images\star.png" />
 	</ItemGroup>
 
 	<ItemGroup>

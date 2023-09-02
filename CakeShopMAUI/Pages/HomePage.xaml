@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:CakeShopMAUI.ViewModels"
              xmlns:models="clr-namespace:CakeShopMAUI.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="CakeShopMAUI.Pages.HomePage"
              Title="Cake World"
              x:DataType="vm:HomeViewModel">
@@ -52,10 +53,31 @@
                                 StrokeShape="RoundRectangle 10" 
                                 BackgroundColor="PaleGoldenrod"
                                 StrokeThickness="0" Margin="2"
-                                HeightRequest="150">
-                            <Image Source="{Binding Image}">
+                                HeightRequest="200"  Padding="5">
+                            <VerticalStackLayout>
+                                <Image Source="{Binding Image}"  VerticalOptions="Start"
+                                   HeightRequest="140">
 
-                            </Image>
+                                </Image>
+                                <Label Text="{Binding Name}" HorizontalOptions="Center"
+                                       VerticalOptions="Center" FontSize="18"/>
+                                <Grid ColumnDefinitions="130,*" Padding="5">
+                                    <Label Text="{Binding Price,StringFormat='${0:N2}'}" 
+                                           FontSize="14"
+                                           FontAttributes="Bold"/>
+                                    <HorizontalStackLayout Grid.Column="1">
+                                        <Label Text="4" FontSize="14"
+                                               FontAttributes="Bold"/>
+                                        <Image Source="star" HeightRequest="15"
+                                               WidthRequest="15"  Margin="2,0,0,0">
+                                            <Image.Behaviors>
+                                                <toolkit:IconTintColorBehavior
+                                                    TintColor="DarkGoldenrod"/>
+                                            </Image.Behaviors>
+                                        </Image>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
