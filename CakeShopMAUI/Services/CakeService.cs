@@ -72,6 +72,6 @@ namespace CakeShopMAUI.Services
 
         public IEnumerable<Cake> GetPopularPizzas(int count = 6) => _cakes.OrderBy(p=>Guid.NewGuid()).Take(count);
 
-        public IEnumerable<Cake> GetCakes(string searchTerm) => string.IsNullOrEmpty(searchTerm)?_cakes : _cakes.Where(p=>p.Name.Contains(searchTerm,StringComparison.OrdinalIgnoreCase));
+        public IEnumerable<Cake> SearchCakes(string searchTerm) => string.IsNullOrEmpty(searchTerm)?_cakes : _cakes.Where(p=>p.Name.Contains(searchTerm,StringComparison.OrdinalIgnoreCase));
     }
 }

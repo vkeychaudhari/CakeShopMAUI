@@ -35,6 +35,10 @@
                     StrokeThickness="2">
                 <Label Text="Search here" TextColor="Goldenrod" FontSize="15"
                        VerticalOptions="Center" Padding="14,10"/>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToAllCakePageCommand}"
+                                          CommandParameter="{x:Boolean true}"/>
+                </Border.GestureRecognizers>
             </Border>
             <BoxView HeightRequest="5" Color="Transparent"/>
             <Grid ColumnDefinitions="*,*">
@@ -53,7 +57,7 @@
                                 StrokeShape="RoundRectangle 10" 
                                 BackgroundColor="PaleGoldenrod"
                                 StrokeThickness="0" Margin="2"
-                                HeightRequest="200"  Padding="5">
+                                HeightRequest="250"  Padding="5">
                             <VerticalStackLayout>
                                 <Image Source="{Binding Image}"  VerticalOptions="Start"
                                    HeightRequest="140">
@@ -77,6 +81,12 @@
                                         </Image>
                                     </HorizontalStackLayout>
                                 </Grid>
+                                <Button BackgroundColor="Gold"
+                                        Text="View more" TextColor="Black"
+                                        Margin="0,5" CornerRadius="22"
+                                        VerticalOptions="Center" Padding="9">
+                                    
+                                </Button>
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
