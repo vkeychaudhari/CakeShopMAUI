@@ -1,6 +1,7 @@
 ﻿using CakeShopMAUI.Models;
 using CakeShopMAUI.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 
 namespace CakeShopMAUI.ViewModels
@@ -20,17 +21,21 @@ namespace CakeShopMAUI.ViewModels
         public AllCakeViewModel(CakeService cakeService)
         {
             _cakeService = cakeService;
-            Cakes = new ObservableCollection<Cake>();
-            bool val = this.FromSearch;
+            Cakes = new(_cakeService.GetAllPizzas());
+           // bool val = this.FromSearch;   
         }
 
+        [RelayCommand]
         private async Task SearchCake(string serachTerm)
         {
             Cakes.Clear();
+            Searching = true;
+            await Task.Delay(30010); 
             foreach (var cake in _cakeService.SearchCakes(serachTerm))
             {
                 Cakes.Add(cake);
             }
+            Searching = false;
         }
     }
 }

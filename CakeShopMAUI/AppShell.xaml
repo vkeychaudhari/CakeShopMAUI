@@ -3,8 +3,14 @@
     x:Class="CakeShopMAUI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:pages="clr-namespace:CakeShopMAUI.Pages"
+    Shell.BackgroundColor="DarkGoldenrod"
     Shell.FlyoutBehavior="Disabled">
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="DarkGoldenrod"
+                                   StatusBarStyle="LightContent"/>
+    </Shell.Behaviors>
 
     <ShellContent
         Title=""

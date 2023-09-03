@@ -46,7 +46,12 @@
                        VerticalOptions="End"/>
                 <Label Grid.Column="1" Text="View all"
                        HorizontalOptions="End" VerticalOptions="End" FontSize="15"
-                       TextDecorations="Underline"/>
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToAllCakePageCommand}"
+                                          CommandParameter="{x:Boolean false}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </Grid>
             <FlexLayout BindableLayout.ItemsSource="{Binding Cakes}"
                         Wrap="Wrap" >

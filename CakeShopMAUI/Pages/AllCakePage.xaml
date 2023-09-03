@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:CakeShopMAUI.ViewModels"
              xmlns:models="clr-namespace:CakeShopMAUI.Models"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="vm:AllCakeViewModel"
              x:Class="CakeShopMAUI.Pages.AllCakePage"
@@ -13,10 +14,89 @@
             <Setter Property="Title" Value="Search for cake"/>
         </DataTrigger>
     </ContentPage.Triggers>
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto,*">
+        <SearchBar x:Name="sbCake" Grid.Row="0" Placeholder="Search for cake.."
+                    PlaceholderColor="Goldenrod"
+                   CancelButtonColor="Red" TextColor="DarkGoldenrod"
+                   ios:SearchBar.SearchBarStyle="Minimal"
+                   SearchCommand="{Binding SearchCakeCommand}"
+                   SearchCommandParameter="{Binding Source={x:Reference sbCake},Path=Text}"
+                   TextChanged="sbCake_TextChanged"/>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+                <CollectionView ItemsSource="{Binding Cakes}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="0"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Cake">
+                            <Border StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0" BackgroundColor="PaleGoldenrod"
+                                    Padding="10" Margin="5">
+                                <Grid  ColumnDefinitions="130,*">
+                                    <Image Grid.Column="0"
+                                           Source="{Binding Image}"
+                                            HeightRequest="130"
+                                           WidthRequest="130"/>
+                                    <VerticalStackLayout Grid.Column="1"
+                                                         VerticalOptions="Center"
+                                                         Spacing="5">
+                                        <Label Text="{Binding Name}" FontSize="20"/>
+                                        <Grid ColumnDefinitions="*,*" Padding="5">
+                                            <Label Text="{Binding Price,StringFormat='${0:N2}'}" 
+                                           FontSize="14"
+                                           FontAttributes="Bold" HorizontalOptions="Start"/>
+                                            <HorizontalStackLayout Grid.Column="1"
+                                                                   HorizontalOptions="End">
+                                                <Label Text="4" FontSize="14"
+                                               FontAttributes="Bold"/>
+                                                <Image Source="star" HeightRequest="15"
+                                               WidthRequest="15"  Margin="2,0,0,0">
+                                                    <Image.Behaviors>
+                                                        <toolkit:IconTintColorBehavior
+                                                    TintColor="DarkGoldenrod"/>
+                                                    </Image.Behaviors>
+                                                </Image>
+                                            </HorizontalStackLayout>
+                                        </Grid>
+                                        <Border StrokeShape="RoundRectangle 25"
+                                                StrokeThickness="0"
+                                                BackgroundColor="Gold"
+                                                HeightRequest="40"
+                                                HorizontalOptions="Center"
+                                                Padding="30,5"
+                                                VerticalOptions="End">
+                                            <HorizontalStackLayout Spacing="5">
+                                                <Label Text="View more" VerticalOptions="Center"/>
+                                                <Image Source="rightarrow"
+                                                       HeightRequest="25" VerticalOptions="Center"/>
+                                            </HorizontalStackLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout>
+                            <BoxView HeightRequest="50" Color="Transparent"/>
+                            <Label Text="No cake found" FontSize="25"
+                                   HorizontalTextAlignment="Center" TextColor="Gray">
+                                <Label.Triggers>
+                                    <DataTrigger  TargetType="Label"
+                                                  Binding="{Binding Searching}" Value="True">
+                                        <Setter  Property="Text" Value="Searching..."/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ActivityIndicator Grid.RowSpan="2"
+                           IsRunning="{Binding Searching}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" Color="DarkGoldenrod"/>
+    </Grid>
 </ContentPage>
