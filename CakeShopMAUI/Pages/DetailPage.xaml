@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CakeShopMAUI.Pages.DetailPage"
+             xmlns:vm="clr-namespace:CakeShopMAUI.ViewModels"
+             x:DataType="vm:DetailPageViewModel"
+             Title="DetailPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button  HeightRequest="30" WidthRequest="80"
+                 Text="Back" Command="{Binding GoBackCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

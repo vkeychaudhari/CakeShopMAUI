@@ -89,7 +89,9 @@
                                 <Button BackgroundColor="Gold"
                                         Text="View more" TextColor="Black"
                                         Margin="0,5" CornerRadius="22"
-                                        VerticalOptions="Center" Padding="9">
+                                        VerticalOptions="Center" Padding="9"
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}},Path=GoToDetailPageCommand}" 
+                                                                      CommandParameter="{Binding .}">
                                     
                                 </Button>
                             </VerticalStackLayout>

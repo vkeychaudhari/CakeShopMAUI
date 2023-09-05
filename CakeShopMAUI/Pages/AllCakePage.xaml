@@ -71,6 +71,10 @@
                                                 <Image Source="rightarrow"
                                                        HeightRequest="25" VerticalOptions="Center"/>
                                             </HorizontalStackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:AllCakeViewModel}},Path=GoToDetailPageCommand}" 
+                                                                      CommandParameter="{Binding .}"/>
+                                            </Border.GestureRecognizers>
                                         </Border>
                                     </VerticalStackLayout>
                                 </Grid>

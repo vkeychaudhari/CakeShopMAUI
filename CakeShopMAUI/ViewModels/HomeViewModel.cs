@@ -38,5 +38,15 @@ namespace CakeShopMAUI.ViewModels
             };
             await Shell.Current.GoToAsync(nameof(AllCakePage),animate : true, parameter);
         }
+
+        [RelayCommand]
+        private async Task GoToDetailPage(Cake cake)
+        {
+            var parameter = new Dictionary<string, object>
+            {
+                [nameof(DetailPageViewModel.Cake)] = cake,
+            };  
+            await Shell.Current.GoToAsync(nameof(DetailPage), animate: true, parameter);
+        }
     }
 }

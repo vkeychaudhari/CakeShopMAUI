@@ -26,6 +26,7 @@ public static class MauiProgram
 		services.AddSingleton<CakeService>();
 		services.AddSingletonWithShellRoute<HomePage,HomeViewModel>(nameof(HomePage));
 		services.AddTransientWithShellRoute<AllCakePage, AllCakeViewModel>(nameof(AllCakePage));
+		services.AddTransientWithShellRoute<DetailPage, DetailPageViewModel>(nameof(DetailPage));
         return services;
 	}
 }
