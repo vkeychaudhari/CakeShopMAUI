@@ -19,11 +19,5 @@ namespace CakeShopMAUI.ViewModels
         {
             
         }
-
-        [RelayCommand]
-        private async Task GoBack()
-        {
-            await Shell.Current.GoToAsync("../route");
-        }
     }
 }

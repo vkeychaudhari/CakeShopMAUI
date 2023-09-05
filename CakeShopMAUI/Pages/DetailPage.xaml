@@ -10,7 +10,5 @@
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button  HeightRequest="30" WidthRequest="80"
-                 Text="Back" Command="{Binding GoBackCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
